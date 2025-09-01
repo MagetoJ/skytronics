@@ -36,15 +36,15 @@ export default function Products() {
     queryFn: async () => {
       const response = await api.getProducts({
         search: searchQuery || undefined,
-        category: selectedCategory || undefined,
-        sort: sortBy || undefined
+        category: selectedCategory === 'all' ? undefined : selectedCategory || undefined,
+        sort: sortBy === 'default' ? undefined : sortBy || undefined
       });
       return await response.json();
     }
   });
 
   const categories = [
-    { value: '', label: 'All Categories' },
+    { value: 'all', label: 'All Categories' },
     { value: 'smartphones', label: 'Smartphones' },
     { value: 'laptops', label: 'Laptops' },
     { value: 'tvs', label: 'Smart TVs' },
@@ -53,14 +53,14 @@ export default function Products() {
   ];
 
   const priceRanges = [
-    { value: '', label: 'All Prices' },
+    { value: 'all', label: 'All Prices' },
     { value: 'under-20000', label: 'Under KSh 20,000' },
     { value: '20000-50000', label: 'KSh 20,000 - 50,000' },
     { value: 'above-50000', label: 'Above KSh 50,000' }
   ];
 
   const sortOptions = [
-    { value: '', label: 'Default' },
+    { value: 'default', label: 'Default' },
     { value: 'price_asc', label: 'Price: Low to High' },
     { value: 'price_desc', label: 'Price: High to Low' },
     { value: 'name', label: 'Name A-Z' },
