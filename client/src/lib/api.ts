@@ -148,14 +148,14 @@ export const api = {
       body: JSON.stringify({ adminRole })
     }),
 
-  createStandardAdmin: (email: string, password: string, securityKey: string, token: string) =>
+  createStandardAdmin: (email: string, password: string, token: string) =>
     fetch(`${API_BASE}/admin/create-standard-admin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ email, password, securityKey })
+      body: JSON.stringify({ email, password })
     }),
 
   getRevenueStats: (token: string) =>

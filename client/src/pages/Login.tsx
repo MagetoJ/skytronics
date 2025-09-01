@@ -37,12 +37,7 @@ export default function Login() {
         description: "Welcome back to PC Today!",
       });
       
-      // Redirect based on user role
-      if (user?.adminRole === 'standard_admin' || user?.adminRole === 'main_admin') {
-        setLocation('/admin');
-      } else {
-        setLocation('/dashboard');
-      }
+      setLocation('/dashboard');
     } catch (error) {
       toast({
         title: "Login Failed",
@@ -139,12 +134,6 @@ export default function Login() {
                 </Link>
               </div>
               
-              <div className="text-sm text-muted-foreground">
-                Admin access?{' '}
-                <Link href="/admin/login" className="text-primary hover:underline" data-testid="link-admin-login">
-                  Admin Login
-                </Link>
-              </div>
             </div>
           </CardContent>
         </Card>

@@ -42,7 +42,7 @@ Multi-tier security implementation:
 
 - **JWT-based authentication** with secure token storage in localStorage
 - **Role-based access control** supporting three user levels: regular users, standard admins, and main admins
-- **Security key requirement** for admin access beyond standard login credentials
+- **Unified login system** where all users including admins use the same login interface
 - **Protected routes** with middleware validation for API endpoints and frontend route guards
 
 ### PWA Features

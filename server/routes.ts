@@ -106,45 +106,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/admin/login", async (req, res) => {
-    try {
-      const { email, password, securityKey } = req.body;
-      
-      const user = await storage.getUserByEmail(email);
-      if (!user || (user.adminRole !== 'standard_admin' && user.adminRole !== 'main_admin')) {
-        return res.status(401).json({ message: "Invalid admin credentials" });
-      }
-
-      const validPassword = await bcrypt.compare(password, user.passwordHash);
-      if (!validPassword) {
-        return res.status(401).json({ message: "Invalid credentials" });
-      }
-
-      // For main admin, check if this is first login (no security key set)
-      if (user.adminRole === 'main_admin' && !user.securityKey) {
-        // Set the security key for future logins
-        await storage.updateUser(user.id, { securityKey });
-      } else if (user.securityKey && user.securityKey !== securityKey) {
-        return res.status(401).json({ message: "Invalid security key" });
-      }
-
-      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
-      
-      res.json({
-        token,
-        user: {
-          id: user.id,
-          email: user.email,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          adminRole: user.adminRole
-        }
-      });
-    } catch (error) {
-      console.error("Admin login error:", error);
-      res.status(500).json({ message: "Admin login failed" });
-    }
-  });
+  // Admin login removed - admins now use regular login
 
   // Product routes
   app.get("/api/products", async (req, res) => {
@@ -432,7 +394,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Admin-only routes
   app.post("/api/admin/create-standard-admin", authenticateToken, requireMainAdmin, async (req: any, res) => {
     try {
-      const { email, password, securityKey } = req.body;
+      const { email, password } = req.body;
       
       const existingUser = await storage.getUserByEmail(email);
       if (existingUser) {
@@ -444,8 +406,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const admin = await storage.createUser({
         email,
         passwordHash,
-        adminRole: "standard_admin",
-        securityKey
+        adminRole: "standard_admin"
       });
 
       // Log admin activity

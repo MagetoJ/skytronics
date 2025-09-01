@@ -52,8 +52,7 @@ export default function AdminDashboard() {
   // Admin form state
   const [adminForm, setAdminForm] = useState({
     email: '',
-    password: '',
-    securityKey: ''
+    password: ''
   });
 
   useEffect(() => {
@@ -173,13 +172,13 @@ export default function AdminDashboard() {
 
   const createAdminMutation = useMutation({
     mutationFn: async (adminData: any) => {
-      await api.createStandardAdmin(adminData.email, adminData.password, adminData.securityKey, token!);
+      await api.createStandardAdmin(adminData.email, adminData.password, token!);
     },
     onSuccess: () => {
       toast({ title: "Admin created successfully" });
       queryClient.invalidateQueries({ queryKey: ['/api/users/all'] });
       setIsAdminDialogOpen(false);
-      setAdminForm({ email: '', password: '', securityKey: '' });
+      setAdminForm({ email: '', password: '' });
     },
     onError: () => {
       toast({ title: "Failed to create admin", variant: "destructive" });
@@ -732,18 +731,6 @@ export default function AdminDashboard() {
                         onChange={(e) => setAdminForm({...adminForm, password: e.target.value})}
                         required
                         data-testid="input-admin-form-password"
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="adminSecurityKey">Security Key</Label>
-                      <Input
-                        id="adminSecurityKey"
-                        type="password"
-                        value={adminForm.securityKey}
-                        onChange={(e) => setAdminForm({...adminForm, securityKey: e.target.value})}
-                        required
-                        data-testid="input-admin-form-security-key"
                       />
                     </div>
                     
