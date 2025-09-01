@@ -1,0 +1,246 @@
+Create a full-stack e-commerce web application for selling electronics, built with a React frontend, a Node.js/Express backend, and a PostgreSQL database. The application will feature a user dashboard for customers and a secure, role-based admin dashboard. The only payment method is cash on delivery (COD).
+
+Core Requirements
+Technology Stack:
+
+Frontend: React (functional components and hooks)
+
+Backend: Node.js with Express.js
+
+Database: PostgreSQL
+
+Styling: Tailwind CSS (loaded from CDN)
+
+Authentication: JWT (JSON Web Tokens) for secure, session-based authentication.
+
+Architecture:
+
+Multi-File Mandate: The project will be separated into a frontend and a backend. The frontend will communicate with the backend via a RESTful API.
+
+Routing: The frontend will use client-side routing, while the backend will handle API endpoints.
+
+PWA (Progressive Web App) Features:
+
+Manifest File: The application must include a manifest.json file in the frontend to enable "Add to Home Screen" functionality, set a custom app icon, and define app display properties.
+
+Service Worker: A service worker script must be implemented to cache static assets for faster loading times and provide limited offline functionality.
+
+SEO & Sitemapping:
+
+On-Page SEO: Frontend pages must dynamically generate meta tags (e.g., title, description) based on the product or category being viewed to improve search engine rankings.
+
+Sitemap Generation: The backend must expose a sitemap.xml endpoint that dynamically generates a sitemap of all public pages, including products and categories, to assist search engine crawling.
+
+Robots.txt: A robots.txt file should be served by the backend to guide search engine bots on which pages to crawl or avoid.
+
+User-Facing Features (Public & Authenticated)
+Authentication:
+
+The "Login" and "Sign Up" buttons will bring up dedicated forms.
+
+After successful registration via the sign-up form, the user is automatically redirected to the login page.
+
+Upon successful login, the user is redirected to the appropriate dashboard based on their admin_role: user dashboard, standard admin dashboard, or main admin dashboard.
+
+User Accounts: Regular users can create their own accounts.
+
+Homepage:
+
+A responsive hero section.
+
+A list of featured or top-selling products.
+
+A full list of all products fetched from the backend API.
+
+"View Details" and "Add to Cart" buttons on each product item.
+
+Product Catalog:
+
+A prominent search bar to filter products by name.
+
+Advanced filtering by category, brand, and price range.
+
+A button to sort products by price, name, or rating.
+
+Product Detail Page:
+
+Displays a single product with a large image, detailed description, specifications, pricing, and real-time stock availability.
+
+An "Add to Cart" button with quantity controls.
+
+A section for user reviews and ratings, including a form for authenticated users to submit a review and a star rating.
+
+A button to add the item to a personal wishlist.
+
+Shopping Cart:
+
+A dedicated page showing all items added to the cart.
+
+Allows users to adjust item quantities or remove items.
+
+Displays the subtotal and an estimated total.
+
+A "Proceed to Checkout" button that redirects to the order placement form.
+
+Checkout & Order Placement:
+
+A form for users to enter their name, delivery address, and contact number.
+
+The only payment option is "Cash on Delivery."
+
+Upon submission, the frontend sends a request to the backend to create a new order.
+
+User Dashboard:
+
+Accessible only to authenticated users.
+
+A tabbed interface with sections for:
+
+My Orders: Displays a list of the user's past and pending orders.
+
+My Wishlist: Shows products the user has added to their wishlist.
+
+My Profile: Allows the user to view and edit their profile information.
+
+Admin-Facing Features (Admin Dashboard)
+Admin Authentication & Access:
+
+The admin dashboard is protected by a separate login form.
+
+Security: To log in, admins must provide their email, password, and a unique key provided by the main admin. This key is used for enhanced security and verification.
+
+Main Admin Credentials: The initial main admin account will use the email jabezmageto78@gmail.com and password lokeshen@58.
+
+Admin Accounts: Standard admin accounts cannot be created via the public registration form; they must be created by the main admin.
+
+The admin pages should be inaccessible to unauthorized users.
+
+Admin Roles & Permissions:
+
+Main Admin:
+
+The header should display "Main Admin."
+
+User Management: Can create new standard admin accounts by providing their email, password, and a unique security key. The main admin will provide these credentials to the new standard admin for their first login.
+
+Product Management: Add, edit, and delete products.
+
+Order Management: View and process all orders.
+
+User Management: View all users. Delete user accounts and toggle admin privileges (main_admin vs. standard_admin).
+
+Reporting & Data Export: View revenue reports and download product/order data.
+
+Standard Admin:
+
+The header should display "Standard Admin."
+
+Product Management: Add, edit, and delete products.
+
+Order Management: View and process all orders.
+
+No User Management or Reporting Access.
+
+Admin Activity Log (Main Admin Only):
+
+A dedicated view for the main admin to monitor the actions of all standard admins.
+
+The log should record:
+
+Which admin performed the action.
+
+The type of action (e.g., "Product Added," "Product Updated," "Order Status Changed").
+
+The timestamp of the action.
+
+Details of the action (e.g., the product name, the old and new order status).
+
+Product Management:
+
+A view to see all products in the database.
+
+A form to add new products.
+
+Functionality to edit or delete existing products.
+
+Order Management:
+
+A view showing all orders.
+
+Filter functionality to view orders by status.
+
+A button or dropdown to update the order status.
+
+User Management (Main Admin Only):
+
+A view of all user accounts.
+
+Buttons to delete a user's account or change their role.
+
+Reporting & Data Export (Main Admin Only):
+
+A separate view displaying total revenue, number of completed orders, and top-selling products.
+
+Buttons to download products and orders data as CSV or JSON.
+
+PostgreSQL Database Schema
+users table: id (PK), email (UNIQUE), password_hash, admin_role (e.g., 'none', 'standard_admin', 'main_admin'), security_key (UNIQUE), created_at.
+
+products table: id (PK), name, description, price, image_url, stock, category, brand, average_rating.
+
+orders table: id (PK), user_id (FK), customer_name, delivery_address, contact_number, total, status, created_at.
+
+order_items table: id (PK), order_id (FK), product_id (FK), quantity, price_at_time_of_order.
+
+reviews table: id (PK), product_id (FK), user_id (FK), rating, comment, created_at.
+
+wishlists table: user_id (FK), product_id (FK).
+
+admin_activity_log table: id (PK), admin_id (FK), action_type (string), action_details (TEXT or JSONB), timestamp.
+
+API Endpoints (Backend)
+POST /api/register
+
+POST /api/login
+
+POST /api/admin/login
+
+GET /api/products
+
+GET /api/products/:id
+
+GET /api/products/search?name=...
+
+POST /api/orders
+
+GET /api/users/:id/orders (Authenticated)
+
+POST /api/products/:id/reviews (Authenticated)
+
+POST /api/products (Admin only)
+
+PUT /api/products/:id (Admin only)
+
+DELETE /api/products/:id (Admin only)
+
+GET /api/orders/all (Admin only)
+
+PUT /api/orders/:id/status (Admin only)
+
+POST /api/admin/create-standard-admin (Main Admin only)
+
+GET /api/users/all (Main Admin only)
+
+DELETE /api/users/:id (Main Admin only)
+
+PUT /api/users/:id/role (Main Admin only)
+
+GET /api/reports/revenue (Main Admin only)
+
+GET /api/reports/products/download (Main Admin only)
+
+GET /api/admin/activity-log (Main Admin only)
+
+GET /sitemap.xml (Public)
+
+GET /robots.txt (Public)
