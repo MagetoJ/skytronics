@@ -2,7 +2,7 @@
 
 ## Overview
 
-PC Today is a full-stack e-commerce web application built for selling electronics in the Kenyan market, specifically targeting Nairobi customers. The platform features a modern React frontend with a Node.js/Express backend, utilizing PostgreSQL for data persistence. The application supports both customer-facing shopping experiences and comprehensive admin management capabilities, with Progressive Web App (PWA) features for enhanced mobile accessibility.
+PC Today is a full-stack Progressive Web App (PWA) built for selling electronics in the Kenyan market, specifically targeting Nairobi customers. The platform features a modern React frontend with a Node.js/Express backend, utilizing PostgreSQL for data persistence and cloud storage for images. The application supports both customer-facing shopping experiences and comprehensive admin management capabilities, with full PWA features including offline functionality, installability, and push notifications. The app is deployment-ready for Vercel, Netlify, and local hosting.
 
 ## User Preferences
 
