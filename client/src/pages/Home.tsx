@@ -12,11 +12,11 @@ import { Smartphone, Laptop, Tv, Home as HomeIcon, Truck, CreditCard, Shield } f
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'PC Today - Electronics Shop Nairobi | Best Electronics Store Kenya';
+    document.title = 'PC Worx - Electronics Shop Nairobi | Best Electronics Store Kenya';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'PC Today - Leading electronics shop in Nairobi. Best prices on smartphones, laptops, TVs & home appliances in Kenya. Cash on delivery available. Shop online electronics store Kenya.');
+      metaDescription.setAttribute('content', 'PC Worx - Leading electronics shop in Nairobi. Best prices on smartphones, laptops, TVs & home appliances in Kenya. Cash on delivery available. Shop online electronics store Kenya.');
     }
   }, []);
 

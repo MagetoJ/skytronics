@@ -19,7 +19,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    document.title = 'Login - PC Today Kenya';
+    document.title = 'Login - PC Worx Kenya';
     
     if (user) {
       setLocation('/dashboard');
@@ -34,7 +34,7 @@ export default function Login() {
       await login(email, password);
       toast({
         title: "Login Successful",
-        description: "Welcome back to PC Today!",
+        description: "Welcome back to PC Worx!",
       });
       
       setLocation('/dashboard');
@@ -59,7 +59,7 @@ export default function Login() {
               <i className="fas fa-desktop text-primary-foreground text-xl"></i>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-primary">PC Today</h1>
+              <h1 className="text-2xl font-bold text-primary">PC Worx</h1>
               <p className="text-sm text-muted-foreground">Electronics Kenya</p>
             </div>
           </Link>
@@ -69,7 +69,7 @@ export default function Login() {
           <CardHeader>
             <CardTitle className="text-center">Welcome Back</CardTitle>
             <p className="text-center text-muted-foreground">
-              Sign in to your PC Today account
+              Sign in to your PC Worx account
             </p>
           </CardHeader>
           <CardContent>

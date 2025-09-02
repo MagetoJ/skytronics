@@ -10,7 +10,7 @@ export default function Footer() {
                 <i className="fas fa-desktop text-primary-foreground text-lg"></i>
               </div>
               <div>
-                <h3 className="text-lg font-bold">PC Today</h3>
+                <h3 className="text-lg font-bold">PC Worx</h3>
                 <p className="text-sm text-muted">Electronics Kenya</p>
               </div>
             </div>
@@ -49,15 +49,15 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-3">
                 <i className="fas fa-map-marker-alt text-primary"></i>
-                <span className="text-muted">Nairobi, Kenya</span>
+                <span className="text-muted">Krishna Center, Westlands, Nairobi</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-phone text-primary"></i>
-                <span className="text-muted">+254 712 345 678</span>
+                <span className="text-muted">0717 888 333</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-envelope text-primary"></i>
-                <span className="text-muted">info@pctoday.ke</span>
+                <span className="text-muted">info@pcworx.ke</span>
               </div>
             </div>
             
@@ -78,7 +78,7 @@ export default function Footer() {
         
         <div className="border-t border-muted/20 mt-8 pt-8 text-center">
           <p className="text-sm text-muted">
-            © 2024 PC Today Kenya. All rights reserved. | 
+            © 2024 PC Worx Kenya. All rights reserved. | 
             <a href="#" className="text-primary hover:underline">Privacy Policy</a> | 
             <a href="#" className="text-primary hover:underline">Terms of Service</a>
           </p>

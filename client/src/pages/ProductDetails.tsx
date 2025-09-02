@@ -71,7 +71,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     if (product) {
-      document.title = `${product.name} - ${product.category} | PC Today Kenya`;
+      document.title = `${product.name} - ${product.category} | PC Worx Kenya`;
       
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {

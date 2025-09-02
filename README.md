@@ -1,4 +1,4 @@
-# PC Today - Electronics E-Commerce Platform
+# PC Worx - Electronics E-Commerce Platform
 
 A modern Progressive Web App (PWA) for selling electronics in Kenya, built with React, Node.js, and PostgreSQL.
 
@@ -36,7 +36,7 @@ A modern Progressive Web App (PWA) for selling electronics in Kenya, built with 
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd pc-today
+   cd pc-worx
    ```
 
 2. **Install dependencies**

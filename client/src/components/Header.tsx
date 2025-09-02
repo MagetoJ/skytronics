@@ -46,7 +46,7 @@ export default function Header() {
                 <i className="fas fa-desktop text-primary-foreground text-lg"></i>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-primary">PC Today</h1>
+                <h1 className="text-xl font-bold text-primary">PC Worx</h1>
                 <p className="text-xs text-muted-foreground">Electronics Kenya</p>
               </div>
             </Link>

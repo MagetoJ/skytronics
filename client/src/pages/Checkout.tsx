@@ -25,7 +25,7 @@ export default function Checkout() {
   const [deliveryAddress, setDeliveryAddress] = useState('');
 
   useEffect(() => {
-    document.title = 'Checkout - PC Today Kenya';
+    document.title = 'Checkout - PC Worx Kenya';
     
     if (!user) {
       setLocation('/login');

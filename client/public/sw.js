@@ -90,7 +90,7 @@ async function syncOrders() {
 // Push notification handler
 self.addEventListener('push', (event) => {
   const options = {
-    body: event.data ? event.data.text() : 'New update from PC Today!',
+    body: event.data ? event.data.text() : 'New update from PC Worx!',
     icon: '/manifest-icon-192.png',
     badge: '/manifest-icon-192.png',
     data: {
@@ -99,7 +99,7 @@ self.addEventListener('push', (event) => {
   };
 
   event.waitUntil(
-    self.registration.showNotification('PC Today', options)
+    self.registration.showNotification('PC Worx', options)
   );
 });
 
