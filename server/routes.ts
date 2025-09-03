@@ -592,6 +592,37 @@ Sitemap: https://${req.get('host')}/sitemap.xml`;
   // Initialize main admin
   await createMainAdmin();
 
+  // Object storage routes for public file serving and uploads
+  const { ObjectStorageService } = await import('./objectStorage');
+  
+  // Serve public assets from object storage
+  app.get("/public-objects/:filePath(*)", async (req, res) => {
+    const filePath = req.params.filePath;
+    const objectStorageService = new ObjectStorageService();
+    try {
+      const file = await objectStorageService.searchPublicObject(filePath);
+      if (!file) {
+        return res.status(404).json({ error: "File not found" });
+      }
+      objectStorageService.downloadObject(file, res);
+    } catch (error) {
+      console.error("Error searching for public object:", error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+  // Get upload URL for public images (product photos)
+  app.post("/api/objects/upload", authenticateToken, requireAdmin, async (req: any, res) => {
+    try {
+      const objectStorageService = new ObjectStorageService();
+      const uploadURL = await objectStorageService.getPublicUploadURL();
+      res.json({ uploadURL });
+    } catch (error) {
+      console.error("Error getting upload URL:", error);
+      res.status(500).json({ error: "Failed to get upload URL" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
+import { ObjectUploader } from '@/components/ObjectUploader';
 
 export default function AdminDashboard() {
   const { user, token } = useAuth();
@@ -516,15 +517,53 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="imageUrl">Image URL</Label>
-                    <Input
-                      id="imageUrl"
-                      type="url"
-                      value={productForm.imageUrl}
-                      onChange={(e) => setProductForm({...productForm, imageUrl: e.target.value})}
-                      data-testid="input-product-image-url"
-                    />
+                  <div className="space-y-3">
+                    <Label>Product Image</Label>
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <ObjectUploader
+                          maxFileSize={5242880} // 5MB
+                          token={token!}
+                          onComplete={(imageUrl) => {
+                            setProductForm({...productForm, imageUrl});
+                            toast({
+                              title: "Image uploaded successfully",
+                              description: "Your product image has been uploaded to cloud storage.",
+                            });
+                          }}
+                          buttonClassName="w-full"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <Plus className="h-4 w-4" />
+                            <span>Upload Image</span>
+                          </div>
+                        </ObjectUploader>
+                      </div>
+                      <div className="text-center text-muted-foreground text-sm">or</div>
+                      <div>
+                        <Label htmlFor="imageUrl">Image URL (manual entry)</Label>
+                        <Input
+                          id="imageUrl"
+                          type="url"
+                          placeholder="https://example.com/image.jpg"
+                          value={productForm.imageUrl}
+                          onChange={(e) => setProductForm({...productForm, imageUrl: e.target.value})}
+                          data-testid="input-product-image-url"
+                        />
+                      </div>
+                      {productForm.imageUrl && (
+                        <div className="mt-2">
+                          <img 
+                            src={productForm.imageUrl.startsWith('/') ? `${window.location.origin}${productForm.imageUrl}` : productForm.imageUrl}
+                            alt="Product preview" 
+                            className="max-w-32 max-h-32 object-cover rounded border"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex items-center space-x-2">
