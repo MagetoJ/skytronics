@@ -72,6 +72,16 @@ export const wishlists = pgTable("wishlists", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+// Images table for storing uploaded images
+export const images = pgTable("images", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  filename: varchar("filename", { length: 255 }).notNull(),
+  mimeType: varchar("mime_type", { length: 100 }).notNull(),
+  data: text("data").notNull(), // Base64 encoded image data
+  size: integer("size").notNull(), // File size in bytes
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // Admin activity log table
 export const adminActivityLog = pgTable("admin_activity_log", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
@@ -175,12 +185,19 @@ export const insertWishlistSchema = createInsertSchema(wishlists).omit({
   createdAt: true,
 });
 
+export const insertImageSchema = createInsertSchema(images).omit({
+  id: true,
+  createdAt: true,
+});
+
 export const insertAdminActivityLogSchema = createInsertSchema(adminActivityLog).omit({
   id: true,
   timestamp: true,
 });
 
 // Types
+export type Image = typeof images.$inferSelect;
+export type InsertImage = z.infer<typeof insertImageSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Product = typeof products.$inferSelect;

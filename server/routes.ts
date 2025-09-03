@@ -592,6 +592,55 @@ Sitemap: https://${req.get('host')}/sitemap.xml`;
   // Initialize main admin
   await createMainAdmin();
 
+  // Database image upload and serving routes
+  app.post("/api/images/upload", authenticateToken, requireAdmin, async (req: any, res) => {
+    try {
+      const { filename, mimeType, data } = req.body;
+      
+      if (!filename || !mimeType || !data) {
+        return res.status(400).json({ error: "Missing required fields: filename, mimeType, data" });
+      }
+
+      // Validate base64 data
+      const base64Data = data.replace(/^data:image\/[a-z]+;base64,/, '');
+      const buffer = Buffer.from(base64Data, 'base64');
+      
+      const image = await storage.createImage({
+        filename,
+        mimeType,
+        data: base64Data,
+        size: buffer.length,
+      });
+      
+      res.json({ imageId: image.id, url: `/api/images/${image.id}` });
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      res.status(500).json({ error: "Failed to upload image" });
+    }
+  });
+
+  app.get("/api/images/:id", async (req, res) => {
+    try {
+      const image = await storage.getImage(req.params.id);
+      
+      if (!image) {
+        return res.status(404).json({ error: "Image not found" });
+      }
+      
+      const buffer = Buffer.from(image.data, 'base64');
+      res.set({
+        'Content-Type': image.mimeType,
+        'Content-Length': buffer.length,
+        'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
+      });
+      
+      res.send(buffer);
+    } catch (error) {
+      console.error("Error serving image:", error);
+      res.status(500).json({ error: "Failed to serve image" });
+    }
+  });
+
   // Object storage routes for public file serving and uploads
   const { ObjectStorageService } = await import('./objectStorage');
   

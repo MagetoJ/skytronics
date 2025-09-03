@@ -6,6 +6,7 @@ import {
   reviews,
   wishlists,
   adminActivityLog,
+  images,
   type User,
   type InsertUser,
   type Product,
@@ -20,6 +21,8 @@ import {
   type InsertWishlist,
   type AdminActivityLog,
   type InsertAdminActivityLog,
+  type Image,
+  type InsertImage,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, asc, and, or, like, count, sum, sql } from "drizzle-orm";
@@ -67,6 +70,11 @@ export interface IStorage {
   // Admin activity log
   logAdminActivity(log: InsertAdminActivityLog): Promise<AdminActivityLog>;
   getAdminActivityLog(): Promise<AdminActivityLog[]>;
+
+  // Image operations
+  createImage(image: InsertImage): Promise<Image>;
+  getImage(id: string): Promise<Image | undefined>;
+  deleteImage(id: string): Promise<void>;
 
   // Reports
   getRevenueStats(): Promise<{ totalRevenue: number; totalOrders: number; }>;
@@ -310,6 +318,21 @@ export class DatabaseStorage implements IStorage {
       productName: item.productName,
       totalSold: Number(item.totalSold) || 0,
     }));
+  }
+
+  // Image operations
+  async createImage(image: InsertImage): Promise<Image> {
+    const [newImage] = await db.insert(images).values(image).returning();
+    return newImage;
+  }
+
+  async getImage(id: string): Promise<Image | undefined> {
+    const [image] = await db.select().from(images).where(eq(images.id, id));
+    return image;
+  }
+
+  async deleteImage(id: string): Promise<void> {
+    await db.delete(images).where(eq(images.id, id));
   }
 }
 
