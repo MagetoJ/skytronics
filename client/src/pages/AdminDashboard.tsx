@@ -63,7 +63,7 @@ export default function AdminDashboard() {
   const { data: stats } = useQuery({
     queryKey: ['/api/reports/revenue'],
     queryFn: async () => {
-      const response = await api.getRevenueStats(token!);
+      const response = await apiRequest('GET', '/api/reports/revenue');
       return await response.json();
     },
     enabled: !!token && user?.adminRole === 'main_admin'
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
   const { data: products } = useQuery({
     queryKey: ['/api/products'],
     queryFn: async () => {
-      const response = await api.getProducts();
+      const response = await apiRequest('GET', '/api/products');
       return await response.json();
     }
   });
@@ -80,7 +80,7 @@ export default function AdminDashboard() {
   const { data: orders } = useQuery({
     queryKey: ['/api/orders/all'],
     queryFn: async () => {
-      const response = await api.getAllOrders(token!);
+      const response = await apiRequest('GET', '/api/orders/all');
       return await response.json();
     },
     enabled: !!token
@@ -89,7 +89,7 @@ export default function AdminDashboard() {
   const { data: allUsers } = useQuery({
     queryKey: ['/api/users/all'],
     queryFn: async () => {
-      const response = await api.getAllUsers(token!);
+      const response = await apiRequest('GET', '/api/users/all');
       return await response.json();
     },
     enabled: !!token && user?.adminRole === 'main_admin'
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
   const { data: topProducts } = useQuery({
     queryKey: ['/api/reports/top-products'],
     queryFn: async () => {
-      const response = await api.getTopProducts(token!);
+      const response = await apiRequest('GET', '/api/reports/top-products');
       return await response.json();
     },
     enabled: !!token && user?.adminRole === 'main_admin'
@@ -107,7 +107,7 @@ export default function AdminDashboard() {
   const { data: activityLog } = useQuery({
     queryKey: ['/api/admin/activity-log'],
     queryFn: async () => {
-      const response = await api.getAdminActivityLog(token!);
+      const response = await apiRequest('GET', '/api/admin/activity-log');
       return await response.json();
     },
     enabled: !!token && user?.adminRole === 'main_admin'
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
   // Mutations
   const createProductMutation = useMutation({
     mutationFn: async (productData: any) => {
-      await api.createProduct(productData, token!);
+      await apiRequest('POST', '/api/products', productData);
     },
     onSuccess: () => {
       toast({ title: "Product created successfully" });
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
 
   const updateProductMutation = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: any }) => {
-      await api.updateProduct(id, data, token!);
+      await apiRequest('PUT', `/api/products/${id}`, data);
     },
     onSuccess: () => {
       toast({ title: "Product updated successfully" });
@@ -146,7 +146,7 @@ export default function AdminDashboard() {
 
   const deleteProductMutation = useMutation({
     mutationFn: async (id: string) => {
-      await api.deleteProduct(id, token!);
+      await apiRequest('DELETE', `/api/products/${id}`);
     },
     onSuccess: () => {
       toast({ title: "Product deleted successfully" });
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
 
   const updateOrderStatusMutation = useMutation({
     mutationFn: async ({ orderId, status }: { orderId: string; status: string }) => {
-      await api.updateOrderStatus(orderId, status, token!);
+      await apiRequest('PUT', `/api/orders/${orderId}/status`, { status });
     },
     onSuccess: () => {
       toast({ title: "Order status updated" });
@@ -172,7 +172,7 @@ export default function AdminDashboard() {
 
   const createAdminMutation = useMutation({
     mutationFn: async (adminData: any) => {
-      await api.createStandardAdmin(adminData.email, adminData.password, token!);
+      await apiRequest('POST', '/api/admin/create', { email: adminData.email, password: adminData.password });
     },
     onSuccess: () => {
       toast({ title: "Admin created successfully" });
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
 
   const deleteUserMutation = useMutation({
     mutationFn: async (userId: string) => {
-      await api.deleteUser(userId, token!);
+      await apiRequest('DELETE', `/api/users/${userId}`);
     },
     onSuccess: () => {
       toast({ title: "User deleted successfully" });
@@ -266,7 +266,7 @@ export default function AdminDashboard() {
 
   const downloadProducts = async () => {
     try {
-      const response = await api.downloadProducts(token!);
+      const response = await apiRequest('GET', '/api/products');
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
