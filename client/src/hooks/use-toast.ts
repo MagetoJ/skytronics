@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useReducer, useEffect } from "react"
 
 import type {
   ToastActionElement,
