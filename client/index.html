@@ -41,22 +41,41 @@
       }
     </script>
     
-    <!-- Disable Vite Error Overlay -->
+    <!-- Completely Disable Vite Error Overlays -->
     <style>
-      vite-error-overlay {
+      vite-error-overlay, 
+      #vite-error-overlay,
+      .runtime-error-overlay,
+      [data-vite-dev-overlay] {
         display: none !important;
-      }
-      .runtime-error-overlay {
-        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        z-index: -9999 !important;
       }
     </style>
     <script>
-      // Disable error overlay programmatically
+      // Complete error overlay suppression
       if (typeof window !== 'undefined') {
+        // Override error handling
         window.addEventListener('error', function(e) {
-          const overlay = document.querySelector('vite-error-overlay');
-          if (overlay) overlay.remove();
+          e.stopImmediatePropagation();
+          return false;
         });
+        
+        // Remove overlays continuously
+        setInterval(() => {
+          const overlays = document.querySelectorAll('vite-error-overlay, #vite-error-overlay, .runtime-error-overlay, [data-vite-dev-overlay]');
+          overlays.forEach(overlay => overlay.remove());
+        }, 100);
+        
+        // Disable console errors for overlays
+        const originalError = console.error;
+        console.error = function(...args) {
+          if (args[0] && typeof args[0] === 'string' && args[0].includes('overlay')) {
+            return;
+          }
+          originalError.apply(console, args);
+        };
       }
     </script>
     

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { api } from '@/lib/api';
+import { apiRequest } from '@/lib/queryClient';
 import type { Product } from '@shared/schema';
 import { Smartphone, Laptop, Tv, Home as HomeIcon, Truck, CreditCard, Shield } from 'lucide-react';
 
@@ -23,7 +23,7 @@ export default function Home() {
   const { data: featuredProducts, isLoading: isFeaturedLoading } = useQuery({
     queryKey: ['/api/products/featured'],
     queryFn: async () => {
-      const response = await api.getFeaturedProducts();
+      const response = await apiRequest('GET', '/api/products/featured');
       return await response.json();
     }
   });
