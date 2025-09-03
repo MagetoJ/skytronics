@@ -518,63 +518,49 @@ export default function AdminDashboard() {
 
                   <div className="space-y-3">
                     <Label>Product Image</Label>
-                    <div className="flex flex-col space-y-3">
-                      <div className="border border-dashed border-gray-300 rounded-lg p-4 text-center">
-                        <input
-                          type="file"
-                          accept="image/*"
-                          onChange={async (e) => {
-                            const file = e.target.files?.[0];
-                            if (!file) return;
+                    <div className="border border-dashed border-gray-300 rounded-lg p-4 text-center">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
 
-                            if (file.size > 5242880) { // 5MB limit
-                              toast({ title: "File too large", description: "Please select an image under 5MB", variant: "destructive" });
-                              return;
+                          if (file.size > 5242880) { // 5MB limit
+                            toast({ title: "File too large", description: "Please select an image under 5MB", variant: "destructive" });
+                            return;
+                          }
+
+                          // Convert file to base64
+                          const reader = new FileReader();
+                          reader.onload = async (event) => {
+                            try {
+                              const response = await apiRequest('POST', '/api/images/upload', {
+                                filename: file.name,
+                                mimeType: file.type,
+                                data: event.target?.result as string,
+                              });
+                              const data = await response.json();
+                              setProductForm({...productForm, imageUrl: data.url});
+                              toast({ title: "Image uploaded successfully", description: "Your product image has been saved to database." });
+                            } catch (error) {
+                              toast({ title: "Failed to upload image", variant: "destructive" });
                             }
-
-                            // Convert file to base64
-                            const reader = new FileReader();
-                            reader.onload = async (event) => {
-                              try {
-                                const response = await apiRequest('POST', '/api/images/upload', {
-                                  filename: file.name,
-                                  mimeType: file.type,
-                                  data: event.target?.result as string,
-                                });
-                                const data = await response.json();
-                                setProductForm({...productForm, imageUrl: data.url});
-                                toast({ title: "Image uploaded successfully", description: "Your product image has been saved to database." });
-                              } catch (error) {
-                                toast({ title: "Failed to upload image", variant: "destructive" });
-                              }
-                            };
-                            reader.readAsDataURL(file);
-                          }}
-                          className="w-full cursor-pointer"
-                          data-testid="input-product-image-upload"
-                        />
-                        <p className="text-sm text-muted-foreground mt-2">
-                          📁 Click to upload image (max 5MB) - Images stored in database
-                        </p>
-                      </div>
-                      <div className="text-center text-muted-foreground text-sm">or</div>
-                      <div>
-                        <Label htmlFor="imageUrl">Image URL (manual entry)</Label>
-                        <Input
-                          id="imageUrl"
-                          type="url"
-                          placeholder="https://example.com/image.jpg"
-                          value={productForm.imageUrl}
-                          onChange={(e) => setProductForm({...productForm, imageUrl: e.target.value})}
-                          data-testid="input-product-image-url"
-                        />
-                      </div>
+                          };
+                          reader.readAsDataURL(file);
+                        }}
+                        className="w-full cursor-pointer"
+                        data-testid="input-product-image-upload"
+                      />
+                      <p className="text-sm text-muted-foreground mt-2">
+                        📁 Click to upload product image (max 5MB)
+                      </p>
                       {productForm.imageUrl && (
-                        <div className="mt-2">
+                        <div className="mt-3">
                           <img 
                             src={productForm.imageUrl.startsWith('/') ? `${window.location.origin}${productForm.imageUrl}` : productForm.imageUrl}
                             alt="Product preview" 
-                            className="max-w-32 max-h-32 object-cover rounded border"
+                            className="max-w-32 max-h-32 object-cover rounded border mx-auto"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
                             }}
