@@ -172,7 +172,7 @@ export default function AdminDashboard() {
 
   const createAdminMutation = useMutation({
     mutationFn: async (adminData: any) => {
-      await apiRequest('POST', '/api/admin/create', { email: adminData.email, password: adminData.password });
+      await apiRequest('POST', '/api/admin/create-standard-admin', { email: adminData.email, password: adminData.password });
     },
     onSuccess: () => {
       toast({ title: "Admin created successfully" });
@@ -685,7 +685,8 @@ export default function AdminDashboard() {
                   <thead className="bg-muted/50">
                     <tr>
                       <th className="text-left p-4 font-medium">Order ID</th>
-                      <th className="text-left p-4 font-medium">Customer</th>
+                      <th className="text-left p-4 font-medium">Customer Info</th>
+                      <th className="text-left p-4 font-medium">Delivery Address</th>
                       <th className="text-left p-4 font-medium">Total</th>
                       <th className="text-left p-4 font-medium">Status</th>
                       <th className="text-left p-4 font-medium">Date</th>
@@ -700,6 +701,11 @@ export default function AdminDashboard() {
                           <div>
                             <p className="font-medium">{order.customerName}</p>
                             <p className="text-sm text-muted-foreground">{order.contactNumber}</p>
+                          </div>
+                        </td>
+                        <td className="p-4">
+                          <div className="text-sm">
+                            <p className="text-muted-foreground">{order.deliveryAddress}</p>
                           </div>
                         </td>
                         <td className="p-4">{formatPrice(order.total)}</td>
@@ -826,7 +832,7 @@ export default function AdminDashboard() {
                           </td>
                           <td className="p-4">{new Date(userData.createdAt).toLocaleDateString()}</td>
                           <td className="p-4">
-                            {userData.adminRole === 'none' && (
+                            {(userData.adminRole === 'none' || userData.adminRole === 'standard_admin') && (
                               <AlertDialog>
                                 <AlertDialogTrigger asChild>
                                   <Button variant="ghost" size="sm" data-testid={`button-delete-user-${userData.id}`}>
@@ -835,9 +841,9 @@ export default function AdminDashboard() {
                                 </AlertDialogTrigger>
                                 <AlertDialogContent>
                                   <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete User</AlertDialogTitle>
+                                    <AlertDialogTitle>Delete {userData.adminRole === 'standard_admin' ? 'Admin' : 'User'}</AlertDialogTitle>
                                     <AlertDialogDescription>
-                                      Are you sure you want to delete this user? This action cannot be undone.
+                                      Are you sure you want to delete this {userData.adminRole === 'standard_admin' ? 'admin' : 'user'}? This action cannot be undone.
                                     </AlertDialogDescription>
                                   </AlertDialogHeader>
                                   <AlertDialogFooter>

@@ -14,6 +14,19 @@ import { Heart, Star, ShoppingCart, Minus, Plus } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 
+// Helper function to normalize image URLs
+const normalizeImageUrl = (imageUrl: string | null | undefined): string | null => {
+  if (!imageUrl) return null;
+  
+  // Fix malformed object storage URLs
+  if (imageUrl.startsWith('https://public-objects/')) {
+    return imageUrl.replace('https://public-objects/', '/public-objects/');
+  }
+  
+  // Return as-is for valid URLs
+  return imageUrl;
+};
+
 export default function ProductDetails() {
   const [, params] = useRoute('/products/:id');
   const productId = params?.id;
@@ -187,10 +200,13 @@ export default function ProductDetails() {
           {/* Product Image */}
           <div className="space-y-4">
             <img
-              src={product.imageUrl || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600'}
+              src={normalizeImageUrl(product.imageUrl) || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600'}
               alt={product.name}
               className="w-full rounded-lg"
               data-testid="img-product-main"
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600';
+              }}
             />
           </div>
 

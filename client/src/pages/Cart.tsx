@@ -9,6 +9,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 
+// Helper function to normalize image URLs
+const normalizeImageUrl = (imageUrl: string | null | undefined): string | null => {
+  if (!imageUrl) return null;
+  
+  // Fix malformed object storage URLs
+  if (imageUrl.startsWith('https://public-objects/')) {
+    return imageUrl.replace('https://public-objects/', '/public-objects/');
+  }
+  
+  // Return as-is for valid URLs
+  return imageUrl;
+};
+
 export default function Cart() {
   const { items, updateQuantity, removeFromCart, getTotal, getItemCount } = useCart();
   const { user } = useAuth();
@@ -61,10 +74,13 @@ export default function Cart() {
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <img
-                      src={item.imageUrl || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150'}
+                      src={normalizeImageUrl(item.imageUrl) || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150'}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded-lg"
                       data-testid={`img-cart-item-${item.productId}`}
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150';
+                      }}
                     />
                     
                     <div className="flex-1">

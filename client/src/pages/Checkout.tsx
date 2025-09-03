@@ -14,6 +14,19 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 
+// Helper function to normalize image URLs
+const normalizeImageUrl = (imageUrl: string | null | undefined): string | null => {
+  if (!imageUrl) return null;
+  
+  // Fix malformed object storage URLs
+  if (imageUrl.startsWith('https://public-objects/')) {
+    return imageUrl.replace('https://public-objects/', '/public-objects/');
+  }
+  
+  // Return as-is for valid URLs
+  return imageUrl;
+};
+
 export default function Checkout() {
   const [, setLocation] = useLocation();
   const { user, token } = useAuth();
@@ -198,10 +211,13 @@ export default function Checkout() {
                   {items.map((item) => (
                     <div key={item.productId} className="flex items-center space-x-3">
                       <img
-                        src={item.imageUrl || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80'}
+                        src={normalizeImageUrl(item.imageUrl) || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80'}
                         alt={item.name}
                         className="w-12 h-12 object-cover rounded-lg"
                         data-testid={`img-checkout-item-${item.productId}`}
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80';
+                        }}
                       />
                       <div className="flex-1">
                         <div className="font-medium text-sm" data-testid={`text-checkout-item-name-${item.productId}`}>

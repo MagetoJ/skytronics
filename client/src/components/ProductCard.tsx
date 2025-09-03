@@ -7,6 +7,19 @@ import { Badge } from '@/components/ui/badge';
 import { Heart, Star, ShoppingCart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+// Helper function to normalize image URLs
+const normalizeImageUrl = (imageUrl: string | null | undefined): string | null => {
+  if (!imageUrl) return null;
+  
+  // Fix malformed object storage URLs
+  if (imageUrl.startsWith('https://public-objects/')) {
+    return imageUrl.replace('https://public-objects/', '/public-objects/');
+  }
+  
+  // Return as-is for valid URLs
+  return imageUrl;
+};
+
 interface Product {
   id: string;
   name: string;
@@ -68,10 +81,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" data-testid={`card-product-${product.id}`}>
       <div className="relative">
         <img
-          src={product.imageUrl || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'}
+          src={normalizeImageUrl(product.imageUrl) || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'}
           alt={product.name}
           className="w-full h-48 object-cover"
           data-testid={`img-product-${product.id}`}
+          onError={(e) => {
+            e.currentTarget.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+          }}
         />
         {product.featured && (
           <Badge className="absolute top-2 left-2 bg-secondary text-secondary-foreground">
