@@ -1,0 +1,1090 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Today - Electronics Shop Nairobi | Best Electronics Store Kenya</title>
+    <meta name="description" content="PC Today - Leading electronics shop in Nairobi. Best prices on smartphones, laptops, TVs & home appliances in Kenya. Cash on delivery available. Shop online electronics store Kenya.">
+    <meta name="keywords" content="electronics shop Nairobi, electronics store Kenya, smartphones Nairobi, laptops Kenya, TV prices Nairobi, online electronics store Kenya">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1e40af">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "system-ui", "sans-serif"],
+                }
+            },
+        }
+    };
+    </script>
+    
+    <style>
+        :root {
+            --radius: 0.5rem;
+            --background: hsl(0 0% 100%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(221.2 83.2% 53.3%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(24.6 95% 53.1%);
+            --secondary-foreground: hsl(210 40% 98%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(158.1 64.4% 51.6%);
+            --accent-foreground: hsl(210 40% 98%);
+            --destructive: hsl(0 84.2% 60.2%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(221.2 83.2% 53.3%);
+        }
+        
+        .dark {
+            --background: hsl(222.2 84% 4.9%);
+            --foreground: hsl(210 40% 98%);
+            --card: hsl(222.2 84% 4.9%);
+            --card-foreground: hsl(210 40% 98%);
+            --popover: hsl(222.2 84% 4.9%);
+            --popover-foreground: hsl(210 40% 98%);
+            --primary: hsl(217.2 91.2% 59.8%);
+            --primary-foreground: hsl(222.2 84% 4.9%);
+            --secondary: hsl(217.2 32.6% 17.5%);
+            --secondary-foreground: hsl(210 40% 98%);
+            --muted: hsl(217.2 32.6% 17.5%);
+            --muted-foreground: hsl(215 20.2% 65.1%);
+            --accent: hsl(217.2 32.6% 17.5%);
+            --accent-foreground: hsl(210 40% 98%);
+            --border: hsl(217.2 32.6% 17.5%);
+            --input: hsl(217.2 32.6% 17.5%);
+            --ring: hsl(224.3 76.3% 94.0%);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground min-h-screen">
+    <!-- Navigation Header -->
+    <!-- @COMPONENT: Header [includes branding, search, cart, auth buttons] -->
+    <header class="bg-white shadow-sm border-b border-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-desktop text-primary-foreground text-lg"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-primary">PC Today</h1>
+                            <p class="text-xs text-muted-foreground">Electronics Kenya</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Links -->
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#" class="text-foreground hover:text-primary font-medium">Products</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary">Categories</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary">Deals</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary">Support</a>
+                    </nav>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8 hidden md:block">
+                    <div class="relative">
+                        <input type="text" placeholder="Search electronics in Nairobi..." 
+                               class="w-full pl-10 pr-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                    </div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-heart text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center" data-mock="true">3</span>
+                    </button>
+                    
+                    <button class="relative p-2 text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center" data-mock="true">2</span>
+                    </button>
+                    
+                    <div class="hidden md:flex space-x-2">
+                        <button class="px-4 py-2 text-primary border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
+                            Login
+                        </button>
+                        <button class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+                            Sign Up
+                        </button>
+                    </div>
+                    
+                    <button class="md:hidden p-2 text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [featured products and promotions] -->
+    <section class="bg-gradient-to-r from-primary to-accent text-primary-foreground py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
+                        Best Electronics Shop in Nairobi
+                    </h2>
+                    <p class="text-xl text-primary-foreground/90">
+                        Latest smartphones, laptops, TVs & home appliances. 
+                        Cash on delivery across Kenya. Trusted since 2020.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors">
+                            Shop Electronics
+                        </button>
+                        <button class="border border-primary-foreground text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                            View Deals
+                        </button>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center space-x-6 pt-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-truck text-secondary"></i>
+                            <span class="text-sm">Free Delivery Nairobi</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-money-bill-wave text-secondary"></i>
+                            <span class="text-sm">Cash on Delivery</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-secondary"></i>
+                            <span class="text-sm">1 Year Warranty</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:text-right">
+                    <!-- Modern smartphone showcase with Kenyan context -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                             alt="Latest smartphones and electronics available in Nairobi" 
+                             class="rounded-xl shadow-2xl w-full h-auto max-w-md ml-auto" />
+                        <div class="absolute -bottom-4 -left-4 bg-white text-foreground p-4 rounded-lg shadow-lg">
+                            <div class="text-sm font-medium">Starting from</div>
+                            <div class="text-2xl font-bold text-primary">KSh 15,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- Product Categories -->
+    <!-- @COMPONENT: CategoryGrid [main product categories] -->
+    <section class="py-16 bg-muted/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-foreground mb-4">Shop by Category</h3>
+                <p class="text-muted-foreground max-w-2xl mx-auto">
+                    Browse our wide selection of electronics from trusted brands. All products with warranty and cash on delivery in Kenya.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Smartphones Category -->
+                <div class="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="text-center space-y-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-mobile-alt text-2xl text-primary"></i>
+                        </div>
+                        <h4 class="font-semibold text-card-foreground">Smartphones</h4>
+                        <p class="text-sm text-muted-foreground">iPhone, Samsung, Infinix</p>
+                    </div>
+                </div>
+                
+                <!-- Laptops Category -->
+                <div class="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="text-center space-y-4">
+                        <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-laptop text-2xl text-accent"></i>
+                        </div>
+                        <h4 class="font-semibold text-card-foreground">Laptops</h4>
+                        <p class="text-sm text-muted-foreground">HP, Dell, Lenovo</p>
+                    </div>
+                </div>
+                
+                <!-- TVs Category -->
+                <div class="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="text-center space-y-4">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-tv text-2xl text-secondary"></i>
+                        </div>
+                        <h4 class="font-semibold text-card-foreground">Smart TVs</h4>
+                        <p class="text-sm text-muted-foreground">LG, Samsung, Hisense</p>
+                    </div>
+                </div>
+                
+                <!-- Home Appliances Category -->
+                <div class="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="text-center space-y-4">
+                        <div class="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-home text-2xl text-destructive"></i>
+                        </div>
+                        <h4 class="font-semibold text-card-foreground">Home Appliances</h4>
+                        <p class="text-sm text-muted-foreground">Microwaves, Blenders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CategoryGrid -->
+
+    <!-- Featured Products -->
+    <!-- @COMPONENT: ProductGrid [featured and trending products] -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h3 class="text-3xl font-bold text-foreground mb-2">Featured Electronics</h3>
+                    <p class="text-muted-foreground">Best selling products in Nairobi</p>
+                </div>
+                <button class="text-primary font-semibold hover:underline">View All Products</button>
+            </div>
+            
+            <!-- Product Search and Filters -->
+            <div class="mb-8 space-y-4">
+                <div class="flex flex-col lg:flex-row gap-4">
+                    <!-- Search -->
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" placeholder="Search products..." 
+                                   class="w-full pl-10 pr-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="flex gap-4">
+                        <select class="px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                            <option>All Categories</option>
+                            <option>Smartphones</option>
+                            <option>Laptops</option>
+                            <option>TVs</option>
+                        </select>
+                        
+                        <select class="px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                            <option>Price Range</option>
+                            <option>Under KSh 20,000</option>
+                            <option>KSh 20,000 - 50,000</option>
+                            <option>Above KSh 50,000</option>
+                        </select>
+                        
+                        <select class="px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                            <option>Sort by</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Most Popular</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- @MAP: products.map(product => ( -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <!-- Samsung Galaxy smartphone displayed in electronics store -->
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Samsung Galaxy smartphone" 
+                         class="w-full h-48 object-cover" data-mock-image="true" />
+                    
+                    <div class="p-4 space-y-3">
+                        <div class="flex items-start justify-between">
+                            <h4 class="font-semibold text-card-foreground line-clamp-2" data-bind="product.name">Samsung Galaxy A54 5G</h4>
+                            <button class="text-muted-foreground hover:text-destructive">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-secondary text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-muted-foreground" data-bind="product.reviewCount">(24 reviews)</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary" data-bind="product.price">KSh 35,500</span>
+                                <span class="text-sm text-accent font-medium" data-bind="product.stock">In Stock</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground line-through" data-bind="product.originalPrice">KSh 42,000</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <button class="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                                    data-event="click:addToCart">
+                                Add to Cart
+                            </button>
+                            <button class="w-full border border-border text-foreground py-2 rounded-lg hover:bg-muted transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <!-- HP laptop computer on office desk -->
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="HP laptop computer" 
+                         class="w-full h-48 object-cover" data-mock-image="true" />
+                    
+                    <div class="p-4 space-y-3">
+                        <div class="flex items-start justify-between">
+                            <h4 class="font-semibold text-card-foreground line-clamp-2">HP Pavilion 15 Gaming</h4>
+                            <button class="text-muted-foreground hover:text-destructive">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-secondary text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-muted-foreground">(18 reviews)</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">KSh 75,000</span>
+                                <span class="text-sm text-accent font-medium">In Stock</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <button class="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                                Add to Cart
+                            </button>
+                            <button class="w-full border border-border text-foreground py-2 rounded-lg hover:bg-muted transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <!-- Modern smart TV displaying vibrant colors -->
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Smart TV with vibrant display" 
+                         class="w-full h-48 object-cover" data-mock-image="true" />
+                    
+                    <div class="p-4 space-y-3">
+                        <div class="flex items-start justify-between">
+                            <h4 class="font-semibold text-card-foreground line-clamp-2">LG 55" 4K Smart TV</h4>
+                            <button class="text-destructive">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-secondary text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-muted-foreground">(32 reviews)</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">KSh 95,000</span>
+                                <span class="text-sm text-destructive font-medium">Low Stock</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground line-through">KSh 120,000</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <button class="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                                Add to Cart
+                            </button>
+                            <button class="w-full border border-border text-foreground py-2 rounded-lg hover:bg-muted transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 4 -->
+                <div class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <!-- Modern kitchen with blender and appliances -->
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Kitchen blender appliance" 
+                         class="w-full h-48 object-cover" data-mock-image="true" />
+                    
+                    <div class="p-4 space-y-3">
+                        <div class="flex items-start justify-between">
+                            <h4 class="font-semibold text-card-foreground line-clamp-2">Philips Multi Blender</h4>
+                            <button class="text-muted-foreground hover:text-destructive">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-secondary text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-muted-foreground">(45 reviews)</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">KSh 8,500</span>
+                                <span class="text-sm text-accent font-medium">In Stock</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <button class="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                                Add to Cart
+                            </button>
+                            <button class="w-full border border-border text-foreground py-2 rounded-lg hover:bg-muted transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProductGrid -->
+
+    <!-- Admin Dashboard Demo -->
+    <!-- @COMPONENT: AdminDashboard [main admin interface] -->
+    <section class="py-16 bg-muted/20" id="admin-dashboard">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-foreground mb-4">Admin Dashboard</h3>
+                <p class="text-muted-foreground">Comprehensive management interface for PC Today</p>
+                
+                <!-- Role Toggle Demo -->
+                <div class="flex justify-center space-x-4 mt-6">
+                    <button onclick="showMainAdmin()" class="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-medium">
+                        Main Admin View
+                    </button>
+                    <button onclick="showStandardAdmin()" class="px-6 py-2 border border-border text-foreground rounded-lg hover:bg-muted">
+                        Standard Admin View
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Admin Header -->
+            <div class="bg-card border border-border rounded-lg mb-6">
+                <div class="p-6 border-b border-border">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user-cog text-primary-foreground text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-card-foreground" id="admin-role">Main Admin</h4>
+                                <p class="text-muted-foreground" data-bind="admin.email">jabezmageto78@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-right">
+                                <div class="text-sm text-muted-foreground">Last Login</div>
+                                <div class="font-medium" data-mock="true">Dec 15, 2024 10:30 AM</div>
+                            </div>
+                            <button class="px-4 py-2 border border-border rounded-lg hover:bg-muted">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admin Tabs -->
+                <div class="p-6">
+                    <div class="border-b border-border mb-6">
+                        <nav class="flex space-x-8" id="admin-tabs">
+                            <!-- Tab content will be dynamically updated -->
+                            <button onclick="showTab('dashboard')" class="border-b-2 border-primary text-primary pb-2 font-medium tab-btn active">
+                                Dashboard
+                            </button>
+                            <button onclick="showTab('products')" class="border-b-2 border-transparent text-muted-foreground pb-2 hover:text-foreground tab-btn">
+                                Products
+                            </button>
+                            <button onclick="showTab('orders')" class="border-b-2 border-transparent text-muted-foreground pb-2 hover:text-foreground tab-btn">
+                                Orders
+                            </button>
+                            <button onclick="showTab('users')" class="border-b-2 border-transparent text-muted-foreground pb-2 hover:text-foreground tab-btn main-admin-only">
+                                Users
+                            </button>
+                            <button onclick="showTab('reports')" class="border-b-2 border-transparent text-muted-foreground pb-2 hover:text-foreground tab-btn main-admin-only">
+                                Reports
+                            </button>
+                            <button onclick="showTab('activity')" class="border-b-2 border-transparent text-muted-foreground pb-2 hover:text-foreground tab-btn main-admin-only">
+                                Activity Log
+                            </button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Dashboard Tab Content -->
+                    <div id="dashboard-content" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                            <!-- Stats Cards -->
+                            <div class="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-6 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-primary-foreground/80 text-sm">Total Revenue</p>
+                                        <p class="text-2xl font-bold" data-mock="true">KSh 2.4M</p>
+                                    </div>
+                                    <i class="fas fa-chart-line text-2xl text-primary-foreground/80"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground p-6 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-accent-foreground/80 text-sm">Total Orders</p>
+                                        <p class="text-2xl font-bold" data-mock="true">1,248</p>
+                                    </div>
+                                    <i class="fas fa-shopping-bag text-2xl text-accent-foreground/80"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground p-6 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-secondary-foreground/80 text-sm">Total Products</p>
+                                        <p class="text-2xl font-bold" data-mock="true">385</p>
+                                    </div>
+                                    <i class="fas fa-boxes text-2xl text-secondary-foreground/80"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-destructive to-destructive/80 text-destructive-foreground p-6 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-destructive-foreground/80 text-sm">Active Users</p>
+                                        <p class="text-2xl font-bold" data-mock="true">2,156</p>
+                                    </div>
+                                    <i class="fas fa-users text-2xl text-destructive-foreground/80"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity -->
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <div class="bg-white border border-border rounded-lg p-6">
+                                <h5 class="font-semibold text-foreground mb-4">Recent Orders</h5>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-3 bg-muted/50 rounded-lg" data-mock="true">
+                                        <div>
+                                            <p class="font-medium">Order #12048</p>
+                                            <p class="text-sm text-muted-foreground">John Kamau - KSh 35,500</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-full">Completed</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-muted/50 rounded-lg" data-mock="true">
+                                        <div>
+                                            <p class="font-medium">Order #12047</p>
+                                            <p class="text-sm text-muted-foreground">Mary Wanjiku - KSh 75,000</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full">Processing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-border rounded-lg p-6">
+                                <h5 class="font-semibold text-foreground mb-4">Low Stock Alert</h5>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-3 bg-muted/50 rounded-lg" data-mock="true">
+                                        <div>
+                                            <p class="font-medium">iPhone 14 Pro Max</p>
+                                            <p class="text-sm text-muted-foreground">Only 3 units left</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-destructive text-destructive-foreground text-xs rounded-full">Low Stock</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-muted/50 rounded-lg" data-mock="true">
+                                        <div>
+                                            <p class="font-medium">HP Pavilion Gaming</p>
+                                            <p class="text-sm text-muted-foreground">5 units left</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-destructive text-destructive-foreground text-xs rounded-full">Low Stock</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Products Tab Content -->
+                    <div id="products-content" class="tab-content hidden">
+                        <div class="flex justify-between items-center mb-6">
+                            <h5 class="text-xl font-semibold">Product Management</h5>
+                            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90">
+                                <i class="fas fa-plus mr-2"></i>Add Product
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white border border-border rounded-lg overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-muted/50">
+                                    <tr>
+                                        <th class="text-left p-4 font-medium">Product</th>
+                                        <th class="text-left p-4 font-medium">Category</th>
+                                        <th class="text-left p-4 font-medium">Price</th>
+                                        <th class="text-left p-4 font-medium">Stock</th>
+                                        <th class="text-left p-4 font-medium">Status</th>
+                                        <th class="text-left p-4 font-medium">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-mock="true">
+                                    <tr class="border-t border-border">
+                                        <td class="p-4">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-10 h-10 bg-muted rounded-lg"></div>
+                                                <div>
+                                                    <p class="font-medium">Samsung Galaxy A54</p>
+                                                    <p class="text-sm text-muted-foreground">128GB, Blue</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">Smartphones</td>
+                                        <td class="p-4">KSh 35,500</td>
+                                        <td class="p-4">24</td>
+                                        <td class="p-4">
+                                            <span class="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-full">Active</span>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex space-x-2">
+                                                <button class="text-primary hover:bg-primary/10 p-2 rounded">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-destructive hover:bg-destructive/10 p-2 rounded">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Orders Tab Content -->
+                    <div id="orders-content" class="tab-content hidden">
+                        <div class="flex justify-between items-center mb-6">
+                            <h5 class="text-xl font-semibold">Order Management</h5>
+                            <div class="flex space-x-2">
+                                <select class="px-3 py-2 border border-input rounded-lg">
+                                    <option>All Orders</option>
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Completed</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border border-border rounded-lg overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-muted/50">
+                                    <tr>
+                                        <th class="text-left p-4 font-medium">Order ID</th>
+                                        <th class="text-left p-4 font-medium">Customer</th>
+                                        <th class="text-left p-4 font-medium">Total</th>
+                                        <th class="text-left p-4 font-medium">Status</th>
+                                        <th class="text-left p-4 font-medium">Date</th>
+                                        <th class="text-left p-4 font-medium">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-mock="true">
+                                    <tr class="border-t border-border">
+                                        <td class="p-4 font-mono">#12048</td>
+                                        <td class="p-4">
+                                            <div>
+                                                <p class="font-medium">John Kamau</p>
+                                                <p class="text-sm text-muted-foreground">+254712345678</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">KSh 35,500</td>
+                                        <td class="p-4">
+                                            <select class="px-2 py-1 text-xs rounded-full bg-accent text-accent-foreground border-0">
+                                                <option>Completed</option>
+                                                <option>Processing</option>
+                                                <option>Pending</option>
+                                            </select>
+                                        </td>
+                                        <td class="p-4">Dec 15, 2024</td>
+                                        <td class="p-4">
+                                            <button class="text-primary hover:bg-primary/10 p-2 rounded">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Users Tab Content (Main Admin Only) -->
+                    <div id="users-content" class="tab-content hidden">
+                        <div class="flex justify-between items-center mb-6">
+                            <h5 class="text-xl font-semibold">User Management</h5>
+                            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90">
+                                <i class="fas fa-user-plus mr-2"></i>Create Admin
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white border border-border rounded-lg overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-muted/50">
+                                    <tr>
+                                        <th class="text-left p-4 font-medium">User</th>
+                                        <th class="text-left p-4 font-medium">Role</th>
+                                        <th class="text-left p-4 font-medium">Status</th>
+                                        <th class="text-left p-4 font-medium">Joined</th>
+                                        <th class="text-left p-4 font-medium">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-mock="true">
+                                    <tr class="border-t border-border">
+                                        <td class="p-4">
+                                            <div>
+                                                <p class="font-medium">Jane Admin</p>
+                                                <p class="text-sm text-muted-foreground">jane@pctoday.ke</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <span class="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full">Standard Admin</span>
+                                        </td>
+                                        <td class="p-4">
+                                            <span class="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-full">Active</span>
+                                        </td>
+                                        <td class="p-4">Nov 20, 2024</td>
+                                        <td class="p-4">
+                                            <div class="flex space-x-2">
+                                                <button class="text-primary hover:bg-primary/10 p-2 rounded">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-destructive hover:bg-destructive/10 p-2 rounded">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Reports Tab Content (Main Admin Only) -->
+                    <div id="reports-content" class="tab-content hidden">
+                        <div class="mb-6">
+                            <h5 class="text-xl font-semibold">Reports & Analytics</h5>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <div class="bg-white border border-border rounded-lg p-6">
+                                <h6 class="font-semibold mb-4">Revenue Report</h6>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between">
+                                        <span>This Month</span>
+                                        <span class="font-bold text-primary" data-mock="true">KSh 450,000</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Last Month</span>
+                                        <span class="font-bold" data-mock="true">KSh 380,000</span>
+                                    </div>
+                                    <div class="pt-4 border-t border-border">
+                                        <button class="w-full bg-primary text-primary-foreground py-2 rounded-lg">
+                                            Download Report (CSV)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-border rounded-lg p-6">
+                                <h6 class="font-semibold mb-4">Top Products</h6>
+                                <div class="space-y-3" data-mock="true">
+                                    <div class="flex justify-between">
+                                        <span>Samsung Galaxy A54</span>
+                                        <span class="font-bold">45 sold</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>HP Pavilion Gaming</span>
+                                        <span class="font-bold">32 sold</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>LG 55" Smart TV</span>
+                                        <span class="font-bold">28 sold</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity Log Tab Content (Main Admin Only) -->
+                    <div id="activity-content" class="tab-content hidden">
+                        <div class="mb-6">
+                            <h5 class="text-xl font-semibold">Admin Activity Log</h5>
+                        </div>
+                        
+                        <div class="bg-white border border-border rounded-lg overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-muted/50">
+                                    <tr>
+                                        <th class="text-left p-4 font-medium">Admin</th>
+                                        <th class="text-left p-4 font-medium">Action</th>
+                                        <th class="text-left p-4 font-medium">Details</th>
+                                        <th class="text-left p-4 font-medium">Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-mock="true">
+                                    <tr class="border-t border-border">
+                                        <td class="p-4">Jane Admin</td>
+                                        <td class="p-4">
+                                            <span class="px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full">Product Added</span>
+                                        </td>
+                                        <td class="p-4">Added "Sony Headphones WH-1000XM5"</td>
+                                        <td class="p-4">Dec 15, 2024 09:45 AM</td>
+                                    </tr>
+                                    <tr class="border-t border-border">
+                                        <td class="p-4">Jane Admin</td>
+                                        <td class="p-4">
+                                            <span class="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full">Order Updated</span>
+                                        </td>
+                                        <td class="p-4">Changed order #12047 status to "Processing"</td>
+                                        <td class="p-4">Dec 15, 2024 08:30 AM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AdminDashboard -->
+
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [company info, links, contact] -->
+    <footer class="bg-foreground text-background py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-desktop text-primary-foreground text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">PC Today</h3>
+                            <p class="text-sm text-muted">Electronics Kenya</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-muted">
+                        Leading electronics shop in Nairobi. Trusted since 2020 for quality electronics, cash on delivery, and excellent customer service across Kenya.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-muted hover:text-background">About Us</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Contact</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Shipping Info</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Returns</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Warranty</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categories -->
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-muted hover:text-background">Smartphones</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Laptops</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Smart TVs</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Gaming</a></li>
+                        <li><a href="#" class="text-muted hover:text-background">Home Appliances</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span class="text-muted">Nairobi, Kenya</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span class="text-muted">+254 712 345 678</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span class="text-muted">info@pctoday.ke</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f text-primary"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter text-primary"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram text-primary"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-muted/20 mt-8 pt-8 text-center">
+                <p class="text-sm text-muted">
+                    © 2024 PC Today Kenya. All rights reserved. | 
+                    <a href="#" class="text-primary hover:underline">Privacy Policy</a> | 
+                    <a href="#" class="text-primary hover:underline">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- JavaScript for Demo Functionality -->
+    <script>
+        // Admin Dashboard Demo Functions
+        function showMainAdmin() {
+            document.getElementById('admin-role').textContent = 'Main Admin';
+            document.querySelectorAll('.main-admin-only').forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+        
+        function showStandardAdmin() {
+            document.getElementById('admin-role').textContent = 'Standard Admin';
+            document.querySelectorAll('.main-admin-only').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+        
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-primary', 'text-primary');
+                btn.classList.add('border-transparent', 'text-muted-foreground');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.remove('hidden');
+            
+            // Add active class to clicked tab button
+            event.target.classList.remove('border-transparent', 'text-muted-foreground');
+            event.target.classList.add('border-primary', 'text-primary');
+        }
+        
+        // PWA Service Worker Registration (Demo)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // TODO: Register service worker for PWA functionality
+                console.log('PWA Service Worker would be registered here');
+            });
+        }
+        
+        // Demo interaction handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // TODO: Initialize React components and API connections
+            // TODO: Setup JWT authentication
+            // TODO: Configure cart functionality
+            // TODO: Implement real-time inventory updates
+            console.log('PC Today E-commerce Platform Initialized');
+        });
+    </script>
+</body>
+</html>
