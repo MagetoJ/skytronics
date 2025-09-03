@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
