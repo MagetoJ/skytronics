@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { api } from '@/lib/api';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function Checkout() {
   const [, setLocation] = useLocation();
@@ -50,7 +50,7 @@ export default function Checkout() {
         contactNumber
       };
 
-      await api.createOrder(orderData, token!);
+      await apiRequest('POST', '/api/orders', orderData);
     },
     onSuccess: () => {
       clearCart();

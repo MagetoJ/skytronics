@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Heart, Star, ShoppingCart, Minus, Plus } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { api } from '@/lib/api';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function ProductDetails() {
   const [, params] = useRoute('/products/:id');
@@ -29,7 +29,7 @@ export default function ProductDetails() {
   const { data: product, isLoading } = useQuery({
     queryKey: ['/api/products', productId],
     queryFn: async () => {
-      const response = await api.getProduct(productId!);
+      const response = await apiRequest('GET', `/api/products/${productId}`);
       return await response.json();
     },
     enabled: !!productId
@@ -38,7 +38,7 @@ export default function ProductDetails() {
   const { data: reviews } = useQuery({
     queryKey: ['/api/products', productId, 'reviews'],
     queryFn: async () => {
-      const response = await api.getProductReviews(productId!);
+      const response = await apiRequest('GET', `/api/products/${productId}/reviews`);
       return await response.json();
     },
     enabled: !!productId
@@ -46,10 +46,10 @@ export default function ProductDetails() {
 
   const reviewMutation = useMutation({
     mutationFn: async () => {
-      await api.createReview(productId!, { 
+      await apiRequest('POST', `/api/products/${productId}/reviews`, { 
         rating: parseInt(reviewRating), 
         comment: reviewComment 
-      }, token!);
+      });
     },
     onSuccess: () => {
       toast({

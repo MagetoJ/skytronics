@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Search } from 'lucide-react';
-import { api } from '@/lib/api';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function Products() {
   const [location] = useLocation();
@@ -34,11 +34,13 @@ export default function Products() {
   const { data: products, isLoading, refetch } = useQuery({
     queryKey: ['/api/products', searchQuery, selectedCategory, sortBy],
     queryFn: async () => {
-      const response = await api.getProducts({
-        search: searchQuery || undefined,
-        category: selectedCategory === 'all' ? undefined : selectedCategory || undefined,
-        sort: sortBy === 'default' ? undefined : sortBy || undefined
-      });
+      const params = new URLSearchParams();
+      if (searchQuery) params.append('search', searchQuery);
+      if (selectedCategory && selectedCategory !== 'all') params.append('category', selectedCategory);
+      if (sortBy && sortBy !== 'default') params.append('sort', sortBy);
+      const queryString = params.toString();
+      const url = queryString ? `/api/products?${queryString}` : '/api/products';
+      const response = await apiRequest('GET', url);
       return await response.json();
     }
   });

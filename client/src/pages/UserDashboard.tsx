@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Package, Heart, User, Calendar, MapPin, Phone, Mail } from 'lucide-react';
-import { api } from '@/lib/api';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function UserDashboard() {
   const { user, token } = useAuth();
@@ -27,7 +27,7 @@ export default function UserDashboard() {
   const { data: orders, isLoading: ordersLoading } = useQuery({
     queryKey: ['/api/users', user?.id, 'orders'],
     queryFn: async () => {
-      const response = await api.getUserOrders(user!.id, token!);
+      const response = await apiRequest('GET', `/api/users/${user!.id}/orders`);
       return await response.json();
     },
     enabled: !!user && !!token
@@ -36,7 +36,7 @@ export default function UserDashboard() {
   const { data: wishlist, isLoading: wishlistLoading } = useQuery({
     queryKey: ['/api/users', user?.id, 'wishlist'],
     queryFn: async () => {
-      const response = await api.getUserWishlist(user!.id, token!);
+      const response = await apiRequest('GET', `/api/users/${user!.id}/wishlist`);
       return await response.json();
     },
     enabled: !!user && !!token
@@ -277,7 +277,7 @@ export default function UserDashboard() {
                     <div className="text-sm">
                       <div className="font-medium">Account Status</div>
                       <div className="text-muted-foreground">
-                        Active customer since {new Date(user.createdAt || Date.now()).toLocaleDateString()}
+                        Active customer since {new Date().toLocaleDateString()}
                       </div>
                     </div>
                   </div>
