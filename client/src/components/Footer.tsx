@@ -19,17 +19,7 @@ export default function Footer() {
             </p>
           </div>
           
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted hover:text-background">About Us</a></li>
-              <li><a href="#" className="text-muted hover:text-background">Contact</a></li>
-              <li><a href="#" className="text-muted hover:text-background">Shipping Info</a></li>
-              <li><a href="#" className="text-muted hover:text-background">Returns</a></li>
-              <li><a href="#" className="text-muted hover:text-background">Warranty</a></li>
-            </ul>
-          </div>
+        
           
           {/* Categories */}
           <div>
@@ -49,15 +39,15 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-3">
                 <i className="fas fa-map-marker-alt text-primary"></i>
-                <span className="text-muted">Krishna Center, Westlands, Nairobi</span>
+                <span className="text-muted">Cresent Business Center, Westlands, Nairobi</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-phone text-primary"></i>
-                <span className="text-muted">0717 888 333</span>
+                <span className="text-muted">0784740040</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-envelope text-primary"></i>
-                <span className="text-muted">info@pcworx.ke</span>
+                <span className="text-muted">info@skytoniqx.com</span>
               </div>
             </div>
             
