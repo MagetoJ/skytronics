@@ -25,7 +25,7 @@ export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    document.title = 'Create Account - PC Worx Kenya';
+    document.title = 'Create Account - SKYTRONIQX Kenya';
     
     if (user) {
       setLocation('/dashboard');
@@ -106,7 +106,7 @@ export default function Register() {
               <i className="fas fa-desktop text-primary-foreground text-xl"></i>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-primary">PC Worx</h1>
+              <h1 className="text-2xl font-bold text-primary">SKYTRONIQX</h1>
               <p className="text-sm text-muted-foreground">Electronics Kenya</p>
             </div>
           </Link>
@@ -116,7 +116,7 @@ export default function Register() {
           <CardHeader>
             <CardTitle className="text-center">Create Account</CardTitle>
             <p className="text-center text-muted-foreground">
-              Join PC Worx for great electronics deals
+              Join SKYTRONIQX for great electronics deals
             </p>
           </CardHeader>
           <CardContent>
@@ -272,7 +272,7 @@ export default function Register() {
         <Card>
           <CardContent className="p-4">
             <div className="text-center space-y-3">
-              <h3 className="font-semibold text-sm">Join PC Worx and enjoy:</h3>
+              <h3 className="font-semibold text-sm">Join SKYTRONIQX and enjoy:</h3>
               <div className="grid grid-cols-1 gap-2 text-xs text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <Check className="h-3 w-3 text-green-500" />

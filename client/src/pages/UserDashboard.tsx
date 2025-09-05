@@ -17,7 +17,7 @@ export default function UserDashboard() {
   const [activeTab, setActiveTab] = useState('orders');
 
   useEffect(() => {
-    document.title = 'My Dashboard - PC Worx Kenya';
+    document.title = 'My Dashboard - SKYTRONIQX Kenya';
     
     if (!user) {
       window.location.href = '/login';

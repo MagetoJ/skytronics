@@ -56,7 +56,7 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    document.title = 'Admin Dashboard - PC Worx Kenya';
+    document.title = 'Admin Dashboard - SKYTRONIQX Kenya';
   }, []);
 
   // Queries

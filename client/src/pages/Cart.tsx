@@ -27,7 +27,7 @@ export default function Cart() {
   const { user } = useAuth();
 
   useEffect(() => {
-    document.title = 'Shopping Cart | PC Worx Kenya';
+    document.title = 'Shopping Cart | SKYTRONIQX Kenya';
   }, []);
 
   const formatPrice = (price: string) => {

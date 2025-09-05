@@ -10,7 +10,7 @@ export default function Footer() {
                 <i className="fas fa-desktop text-primary-foreground text-lg"></i>
               </div>
               <div>
-                <h3 className="text-lg font-bold">PC Worx</h3>
+                <h3 className="text-lg font-bold">SKYTRONIQX</h3>
                 <p className="text-sm text-muted">Electronics Kenya</p>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function Footer() {
         
         <div className="border-t border-muted/20 mt-8 pt-8 text-center">
           <p className="text-sm text-muted">
-            © 2024 PC Worx Kenya. All rights reserved. | 
+            © 2024 SKYTRONIQX Kenya. All rights reserved. | 
             <a href="#" className="text-primary hover:underline">Privacy Policy</a> | 
             <a href="#" className="text-primary hover:underline">Terms of Service</a>
           </p>

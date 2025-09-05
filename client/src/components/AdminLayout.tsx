@@ -40,7 +40,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 <i className="fas fa-desktop text-primary-foreground text-lg"></i>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-primary">PC Worx Admin</h1>
+                <h1 className="text-xl font-bold text-primary">SKYTRONIQX Admin</h1>
                 <p className="text-xs text-muted-foreground">Electronics Management</p>
               </div>
             </div>

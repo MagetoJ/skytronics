@@ -12,7 +12,8 @@ import {
   Menu, 
   User,
   LogOut,
-  Settings
+  Settings,
+  X
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -24,6 +25,7 @@ import {
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
   const { user, logout } = useAuth();
   const { getItemCount } = useCart();
@@ -46,7 +48,7 @@ export default function Header() {
                 <i className="fas fa-desktop text-primary-foreground text-lg"></i>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-primary">PC Worx</h1>
+                <h1 className="text-xl font-bold text-primary">SKYTRONIQX</h1>
                 <p className="text-xs text-muted-foreground">Electronics Kenya</p>
               </div>
             </Link>
@@ -162,11 +164,131 @@ export default function Header() {
               </div>
             )}
             
-            <Button variant="ghost" size="sm" className="md:hidden" data-testid="button-mobile-menu">
-              <Menu className="h-5 w-5" />
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="md:hidden" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-border bg-background">
+            <div className="px-4 py-3 space-y-3">
+              {/* Mobile Search */}
+              <form onSubmit={handleSearch} className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search electronics..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4"
+                  data-testid="input-mobile-search"
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              </form>
+
+              {/* Mobile Navigation Links */}
+              <div className="space-y-2">
+                <Link 
+                  href="/products" 
+                  className="block py-2 text-foreground hover:text-primary font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid="mobile-link-products"
+                >
+                  Products
+                </Link>
+                <Link 
+                  href="/products?category=smartphones" 
+                  className="block py-2 text-muted-foreground hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid="mobile-link-smartphones"
+                >
+                  Smartphones
+                </Link>
+                <Link 
+                  href="/products?category=laptops" 
+                  className="block py-2 text-muted-foreground hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid="mobile-link-laptops"
+                >
+                  Laptops
+                </Link>
+                <Link 
+                  href="/products?category=tvs" 
+                  className="block py-2 text-muted-foreground hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid="mobile-link-tvs"
+                >
+                  Smart TVs
+                </Link>
+              </div>
+
+              {/* Mobile User Actions */}
+              {user ? (
+                <div className="space-y-2 pt-3 border-t border-border">
+                  <Link 
+                    href="/dashboard"
+                    className="block py-2 text-muted-foreground hover:text-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    data-testid="mobile-link-dashboard"
+                  >
+                    <Settings className="inline mr-2 h-4 w-4" />
+                    Dashboard
+                  </Link>
+                  {(user.adminRole === 'standard_admin' || user.adminRole === 'main_admin') && (
+                    <Link 
+                      href="/admin"
+                      className="block py-2 text-muted-foreground hover:text-primary"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      data-testid="mobile-link-admin"
+                    >
+                      <Settings className="inline mr-2 h-4 w-4" />
+                      Admin Panel
+                    </Link>
+                  )}
+                  <button 
+                    onClick={() => {
+                      logout();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                    data-testid="mobile-button-logout"
+                  >
+                    <LogOut className="inline mr-2 h-4 w-4" />
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <div className="flex space-x-2 pt-3 border-t border-border">
+                  <Link 
+                    href="/login" 
+                    className="flex-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Button variant="outline" className="w-full" data-testid="mobile-button-login">
+                      Login
+                    </Button>
+                  </Link>
+                  <Link 
+                    href="/register" 
+                    className="flex-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Button className="w-full" data-testid="mobile-button-register">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

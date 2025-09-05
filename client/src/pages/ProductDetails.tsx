@@ -84,7 +84,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     if (product) {
-      document.title = `${product.name} - ${product.category} | PC Worx Kenya`;
+      document.title = `${product.name} - ${product.category} | SKYTRONIQX Kenya`;
       
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {

@@ -28,7 +28,7 @@ export default function Products() {
     const categoryTitle = urlParams.get('category') 
       ? `${urlParams.get('category')} - ` 
       : '';
-    document.title = `${categoryTitle}Electronics Shop Nairobi | PC Worx Kenya`;
+    document.title = `${categoryTitle}Electronics Shop Nairobi | SKYTRONIQX Kenya`;
   }, [location]);
 
   const { data: products, isLoading, refetch } = useQuery({

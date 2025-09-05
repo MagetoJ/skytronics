@@ -38,7 +38,7 @@ export default function Checkout() {
   const [deliveryAddress, setDeliveryAddress] = useState('');
 
   useEffect(() => {
-    document.title = 'Checkout - PC Worx Kenya';
+    document.title = 'Checkout - SKYTRONIQX Kenya';
     
     if (!user) {
       setLocation('/login');
